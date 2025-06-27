@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="login-container">
+    <div class="flex">
+      <div>
+        <label class="h1">Welcome Back</label>
+      </div>
+      <div>
+        <label>Please Sign In to continue</label>
+      </div>
+    </div>
+
+    <form [formGroup]="loginForm">
+      <div class="form">
+        <div>
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              placeholder="Enter your email"
+              formControlName="email"
+              type="email"
+            />
+            <mat-error *ngIf="loginForm.get('email')?.hasError('required')"
+              >Email is required</mat-error
+            >
+            <mat-error
+              *ngIf="
+                loginForm.get('email')?.touched &&
+                loginForm.get('email')?.hasError('pattern')
+              "
+            >
+              Please enter a valid email address
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Password</mat-label>
+            <input
+              matInput
+              placeholder="Enter your password"
+              formControlName="password"
+              type="password"
+            />
+            <mat-error *ngIf="loginForm.get('password')?.hasError('required')"
+              >Password is required</mat-error
+            >
+          </mat-form-field>
+        </div>
+        <div>
+          <button
+            mat-raised-button
+            color="primary"
+            type="submit"
+            [disabled]="loginForm.invalid"
+            (click)="submit()"
+          >
+            Sign In
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

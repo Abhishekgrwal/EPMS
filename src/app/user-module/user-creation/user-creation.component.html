@@ -1,0 +1,153 @@
+<div class="container">
+  <mat-card appearance="outlined">
+    <mat-card-header>
+      <mat-card-title>User Creation</mat-card-title>
+    </mat-card-header>
+  </mat-card>
+
+  <div class="button-float-right">
+    <button mat-raised-button class="button" [routerLink]="['/user/user-list']">
+      User List
+    </button>
+  </div>
+
+  <mat-card appearance="outlined" class="form">
+    <form class="grid-form" [formGroup]="userForm">
+      <mat-form-field
+        class="example-full-width form-field"
+        appearance="outline"
+      >
+        <mat-label>First Name</mat-label>
+        <input
+          matInput
+          placeholder="Enter First Name"
+          formControlName="firstName"
+          type="text"
+        />
+        <mat-error
+          *ngIf="
+            userForm.get('firstName')?.touched &&
+            userForm.get('firstName')?.hasError('required')
+          "
+          >First Name is required</mat-error
+        >
+        <mat-error
+          *ngIf="
+            userForm.get('firstName')?.touched &&
+            userForm.get('firstName')?.hasError('pattern')
+          "
+        >
+          only alphabets are allowed
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field
+        class="example-full-width form-field"
+        appearance="outline"
+      >
+        <mat-label>Last Name</mat-label>
+        <input
+          matInput
+          placeholder="Enter Last Name"
+          formControlName="lastName"
+          type="text"
+        />
+        <mat-error
+          *ngIf="
+            userForm.get('lastName')?.touched &&
+            userForm.get('lastName')?.hasError('required')
+          "
+          >Last Name is required</mat-error
+        >
+        <mat-error
+          *ngIf="
+            userForm.get('lastName')?.touched &&
+            userForm.get('lastName')?.hasError('pattern')
+          "
+        >
+          only alphabets are allowed
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field
+        class="example-full-width form-field"
+        appearance="outline"
+      >
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          placeholder="Enter Email"
+          formControlName="email"
+          type="email"
+        />
+        <mat-error
+          *ngIf="
+            userForm.get('email')?.touched &&
+            userForm.get('email')?.hasError('required')
+          "
+          >Email is required</mat-error
+        >
+        <mat-error
+          *ngIf="
+            userForm.get('email')?.touched &&
+            userForm.get('email')?.hasError('pattern')
+          "
+        >
+          Please enter a valid email address
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Role</mat-label>
+        <mat-select formControlName="role">
+          <mat-option *ngFor="let role of roleArray" [value]="role">{{
+            role
+          }}</mat-option>
+        </mat-select>
+        <mat-error
+          *ngIf="
+            userForm.get('role')?.touched &&
+            userForm.get('role')?.hasError('required')
+          "
+          >Role is required</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field
+        class="example-full-width form-field"
+        appearance="outline"
+      >
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          placeholder="Enter Password"
+          formControlName="password"
+          [type]="hide ? 'password' : 'text'"
+        />
+        <mat-icon matSuffix (click)="hide = !hide">{{
+          hide ? "visibility_off" : "visibility"
+        }}</mat-icon>
+        <mat-error
+          *ngIf="
+            userForm.get('password')?.touched &&
+            userForm.get('password')?.hasError('required')
+          "
+          >Password is required</mat-error
+        >
+        <mat-error
+          *ngIf="
+            userForm.get('password')?.touched &&
+            userForm.get('password')?.hasError('minlength')
+          "
+        >
+          password must be of 8 characters
+        </mat-error>
+      </mat-form-field>
+    </form>
+    <div class="button-float-right">
+      <button type="button" mat-raised-button class="button" (click)="submit()">
+        Submit
+      </button>
+    </div>
+  </mat-card>
+</div>

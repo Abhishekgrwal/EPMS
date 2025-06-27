@@ -1,0 +1,47 @@
+.filterWrapper
+{
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.example-full-width 
+{
+    width: 60%;
+}
+
+.actions
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.actions .icons
+{
+    cursor: pointer;
+}.container
+{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 3%;
+    width: 100%;
+}
+
+.red
+{
+    color: red;
+}
+
+.orange
+{
+    color: orange;
+}
+.green
+{
+    color: green;
+}

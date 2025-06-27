@@ -1,0 +1,38 @@
+<div class="container">
+  <mat-card appearance="outlined">
+    <mat-card-header>
+      <mat-card-title>Project List</mat-card-title>
+    </mat-card-header>
+  </mat-card>
+
+  <div class="filterWrapper">
+    <div style="width: 60%">
+      <mat-form-field
+        class="form-field"
+        appearance="outline"
+        style="width: 60%"
+      >
+        <input
+          matInput
+          placeholder="Search..."
+          [(ngModel)]="searchText"
+          type="text"
+        />
+      </mat-form-field>
+    </div>
+    <button
+      mat-raised-button
+      class="button"
+      [routerLink]="['/project/project-creation']"
+    >
+      Create
+    </button>
+  </div>
+
+  <app-table
+    [column]="tableCols"
+    [data]="projectList | filter : searchText"
+    (actionClick)="handleAction($event)"
+  >
+  </app-table>
+</div>

@@ -1,0 +1,35 @@
+.navbar
+{
+     background-color: #3f51b5;
+     color: white;
+    
+     font-weight: 600;
+         display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.navbar-buttons
+{
+     display: flex;
+     gap: 20px;
+     font-size: 20px;
+     font-weight: 500;
+     cursor: pointer;
+     
+}
+
+.user
+{
+         align-items: center;
+    display: flex
+;
+    gap: 10px;
+}
+
+
+

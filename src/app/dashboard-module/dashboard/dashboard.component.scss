@@ -1,0 +1,47 @@
+.dasboardconatiner
+{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 16px;
+    background-color: whitesmoke;
+}
+
+.kpiWrapper
+{
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.kpiContainer
+{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 30px;
+    border-radius: 5px;
+   
+    width: -webkit-fill-available;
+    font-size: 20px;
+    font-weight: 600;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      background-color: white;
+}
+.wrapper{
+     border-radius: 5px;
+     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+    align-items: center;
+     background-color: white;
+     padding: 3%;
+}
+
+.chartTitle
+{
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 1%;
+}

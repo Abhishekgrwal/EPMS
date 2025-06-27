@@ -1,0 +1,53 @@
+{
+  "users": [
+    {
+      "id": "1750776130950",
+      "firstName": "Abhishek",
+      "lastName": "Agarwal",
+      "email": "abhishek@gmail.com",
+      "role": "Admin",
+      "password": "abhishek"
+    }
+  ],
+  "projects": [
+    {
+      "name": "project one",
+      "description": "project description",
+      "startDate": "2025-05-31T18:30:00.000Z",
+      "endDate": "2025-06-19T18:30:00.000Z",
+      "assignedUsers": [
+        "1750927974115"
+      ],
+      "id": "1750873400824"
+    }
+  ],
+  "task": [
+    {
+      "name": "task one",
+      "description": "des",
+      "status": "Testing",
+      "dueDate": "2025-06-25T18:30:00.000Z",
+      "priority": "Medium",
+      "projectId": "1750873400824",
+      "id": "1750881503061"
+    },
+    {
+      "id": "1750884105414",
+      "name": "task 22",
+      "description": "description",
+      "status": "To Do",
+      "dueDate": "2025-06-11T18:30:00.000Z",
+      "priority": "Medium",
+      "projectId": null
+    },
+    {
+      "id": "1750884121203",
+      "name": "task 23",
+      "description": "description",
+      "status": "WIP",
+      "dueDate": "2025-05-31T18:30:00.000Z",
+      "priority": "Medium",
+      "projectId": null
+    }
+  ]
+}

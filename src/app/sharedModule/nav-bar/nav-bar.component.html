@@ -1,0 +1,32 @@
+<mat-toolbar class="navbar">
+  <span>EPMS</span>
+  <span class="navbar-buttons">
+    <label [routerLink]="['/dashboard']">Dashboard</label>
+    <label [routerLink]="['/user/user-list']" *ngIf="role === 'Admin'"
+      >User Management</label
+    >
+    <label [routerLink]="['/project/project-list']">Projects Management</label>
+  </span>
+  <span
+    [matMenuTriggerFor]="menu"
+    #menuTrigger="matMenuTrigger"
+    (mouseover)="menuTrigger.openMenu()"
+  >
+    <div class="user">
+      <mat-icon>
+        <span class="material-symbols-outlined">
+          account_circle
+        </span></mat-icon
+      >
+      <span>{{ role }}</span>
+    </div>
+    <mat-menu #menu="matMenu" [overlapTrigger]="false">
+      <span (mouseleave)="menuTrigger.closeMenu()">
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Logout</span>
+        </button>
+      </span>
+    </mat-menu>
+  </span>
+</mat-toolbar>

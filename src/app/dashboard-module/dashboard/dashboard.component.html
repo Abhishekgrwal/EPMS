@@ -1,0 +1,18 @@
+<div class="dasboardconatiner">
+  <div class="kpiWrapper">
+    <div class="kpiContainer" *ngFor="let count of KPIData">
+      <label>{{ count.title }}</label>
+      <label>{{ count.count }}</label>
+    </div>
+  </div>
+
+  <div class="wrapper">
+    <div class="chartTitle">
+      <label>Chart</label>
+    </div>
+
+    <div style="width: 100%">
+      <canvas id="myChart" [width]="700" [height]="150"></canvas>
+    </div>
+  </div>
+</div>

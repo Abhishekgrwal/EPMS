@@ -1,0 +1,114 @@
+<div class="container">
+  <mat-card appearance="outlined">
+    <mat-card-header>
+      <mat-card-title>{{ heading }}</mat-card-title>
+    </mat-card-header>
+  </mat-card>
+
+  <div class="button-float-right">
+    <button
+      mat-raised-button
+      class="button"
+      [routerLink]="['/project/project-list']"
+    >
+      Project List
+    </button>
+  </div>
+
+  <mat-card appearance="outlined" class="form">
+    <form class="grid-form" [formGroup]="creationForm">
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label>Project Name</mat-label>
+        <input
+          matInput
+          placeholder="Enter Project Name"
+          formControlName="name"
+          type="text"
+        />
+        <mat-error
+          *ngIf="
+            creationForm.get('name')?.touched &&
+            creationForm.get('name')?.hasError('required')
+          "
+          >First Name is required</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label>Start Date</mat-label>
+
+        <input matInput [matDatepicker]="picker1" formControlName="startDate" />
+
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="picker1"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+        <mat-error
+          *ngIf="
+            creationForm.get('startDate')?.touched &&
+            creationForm.get('startDate')?.hasError('required')
+          "
+          >startDate is required</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label>End Date</mat-label>
+        <input
+          matInput
+          [matDatepicker]="picker2"
+          formControlName="endDate"
+          [min]="creationForm.get('startDate')?.value"
+        />
+
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="picker2"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+        <mat-error
+          *ngIf="
+            creationForm.get('endDate')?.touched &&
+            creationForm.get('endDate')?.hasError('required')
+          "
+          >endDate is required</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label>Assigned User</mat-label>
+        <mat-select formControlName="assignedUsers" multiple>
+          <mat-option *ngFor="let user of userList" [value]="user.id">{{
+            user.firstName
+          }}</mat-option>
+        </mat-select>
+        <mat-error
+          *ngIf="
+            creationForm.get('assignedUsers')?.touched &&
+            creationForm.get('assignedUsers')?.hasError('required')
+          "
+          >First Name is required</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label>Description</mat-label>
+        <textarea
+          matInput
+          placeholder="Description"
+          formControlName="description"
+        ></textarea>
+        <mat-error
+          *ngIf="
+            creationForm.get('description')?.touched &&
+            creationForm.get('description')?.hasError('required')
+          "
+          >First Name is required</mat-error
+        >
+      </mat-form-field>
+    </form>
+    <div class="button-float-right">
+      <button type="button" mat-raised-button class="button" (click)="submit()">
+        {{ isEditMode ? "Update" : "Submit" }}
+      </button>
+    </div>
+  </mat-card>
+</div>

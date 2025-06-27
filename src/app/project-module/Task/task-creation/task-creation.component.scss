@@ -1,0 +1,16 @@
+.grid-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  max-width: 100%;
+
+}
+
+.container
+{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 3%;
+    width: 100%;
+}
